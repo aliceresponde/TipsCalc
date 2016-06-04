@@ -13,22 +13,16 @@
         android:layout_height="62dp"
         android:ems="10"
         android:hint="@string/main.hint.bill"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        android:layout_marginTop="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="24dp" />
 
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="100dp"
         android:layout_height="62dp"
         android:text="@string/main.button.compute"
-        app:layout_constraintLeft_toRightOf="@+id/inputBill"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        android:layout_marginTop="16dp" />
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="24dp" />
 
     <EditText
         android:id="@+id/inputPrecentage"
@@ -36,11 +30,8 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="@string/main.hint.percentage"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/inputBill"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="118dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -54,24 +45,18 @@
     <Button
         android:id="@+id/btnIncrease"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="@string/main.button.increase"
-        app:layout_constraintLeft_toRightOf="@+id/inputPrecentage"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="120dp" />
 
     <Button
         android:id="@+id/btnDecrese"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main.button.decrease"
-        app:layout_constraintLeft_toRightOf="@+id/btnIncrease"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteX="265dp"
+        tools:layout_editor_absoluteY="120dp" />
 
 
     <View
@@ -81,8 +66,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:background="@android:color/darker_gray"
         tools:layout_editor_absoluteX="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnClear"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteY="252dp" />
 
     <TextView
         android:id="@+id/txtTip"
@@ -90,22 +74,16 @@
         android:layout_height="wrap_content"
 
         android:text="boo"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/separator"
-        android:layout_marginTop="8dp" />
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="283dp" />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main.button.clear"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/inputPrecentage"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="186dp" />
 
 
 </android.support.constraint.ConstraintLayout>
