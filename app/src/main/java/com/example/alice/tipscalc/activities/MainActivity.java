@@ -111,11 +111,49 @@ public class MainActivity extends AppCompatActivity {
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strFormatedTip);
         }
-
     }
 
+    @OnClick(R.id.btnIncrease)
+    public void handleIncreaseClick(){
+        Log.i(TAG, "click inclease");
+        hideKeyBoard();
+        handleTipChange(TIP_STEP_CHANGE);
+    }
+
+    @OnClick(R.id.btnDecrese)
+    public void handleDecreaseClick(){
+        Log.i(TAG, "click Decrease");
+        hideKeyBoard();
+        handleTipChange(-TIP_STEP_CHANGE);
+    }
+
+    /**
+     * Define is the percentage  is  > 0 for set a positive value
+     * @param change
+     */
+    private void handleTipChange(int change) {
+        int tipPercentage = getTipPercentage();
+        tipPercentage += change;
+        if (tipPercentage > 0){
+            inputPrecentage.setText(String.valueOf(tipPercentage));
+        }
+    }
+
+    /**
+     * Verify inpitTip to get this percentage, or deftaul tip_PERCENTAGE (10)
+     * @return
+     */
     private int getTipPercentage() {
-        return DEFAULT_TIP_STEP_PERCENTAGE;
+        int tipPercentage = DEFAULT_TIP_STEP_PERCENTAGE;
+        String strInputTipPercentage = inputPrecentage.getText().toString().trim();
+
+        if (!strInputTipPercentage.isEmpty()){
+            tipPercentage = Integer.parseInt(strInputTipPercentage);
+        }else{
+            inputPrecentage.setText(String.valueOf(tipPercentage));
+        }
+
+        return tipPercentage;
     }
 
     /**
