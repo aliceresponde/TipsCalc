@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.alice.tipscalc.App;
 import com.example.alice.tipscalc.R;
+import com.example.alice.tipscalc.fragments.TipHistoryListFragment;
+import com.example.alice.tipscalc.fragments.TipHistoryListFragmentListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     //instancia del listener
+    private TipHistoryListFragmentListener fragmentListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Vincular el fragmento desde el support  fragment
+        TipHistoryListFragment fragment = (TipHistoryListFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentList);
+
+        //fragmet guarde su instancia
+        fragment.setRetainInstance(true);
+
+        // casteo el  fragment al listener  de la interface implementada por el fragmento
+        fragmentListener = (TipHistoryListFragmentListener) fragment;
 
 
 
@@ -108,8 +119,12 @@ public class MainActivity extends AppCompatActivity {
             double tip = total*(tipPercentage/100d);
 
             String strFormatedTip = String.format(getString(R.string.global_message_tip),tip);
+
+            fragmentListener.action(strFormatedTip);
+
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strFormatedTip);
+
         }
     }
 
