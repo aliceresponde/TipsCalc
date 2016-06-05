@@ -9,7 +9,7 @@
     <string name="main.notice.clear">Elementos recientes ha quedado vacio</string>
     <string name="main.menu.action.abut">Acerca de</string>
 
-    <string name="global.message.tip">Propine %, .1f</string>
+    <string name="global.message.tip">Propina %, .1f</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
