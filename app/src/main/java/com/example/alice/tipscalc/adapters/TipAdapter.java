@@ -49,6 +49,7 @@ public class TipAdapter extends RecyclerView.Adapter<TipAdapter.ViewHolder> {
                             tip.getTip());
 
         holder.txtContent.setText(strTip);
+        holder.txtTimeStamp.setText((tip.getDateFormat()));
         holder.setOnItemClickListener(tip, onItemClickListener);
     }
 
@@ -62,8 +63,6 @@ public class TipAdapter extends RecyclerView.Adapter<TipAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-
-
     @Override
     public int getItemCount() {
         return dataset.size();
@@ -72,6 +71,9 @@ public class TipAdapter extends RecyclerView.Adapter<TipAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.txtContent)
         TextView  txtContent;
+
+        @Bind(R.id.txtTimeStamp)
+        TextView txtTimeStamp;
 
         public ViewHolder(View itemView) {
             super(itemView);

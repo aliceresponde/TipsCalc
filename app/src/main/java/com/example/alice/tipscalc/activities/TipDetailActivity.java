@@ -2,7 +2,11 @@ package com.example.alice.tipscalc.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.alice.tipscalc.R;
@@ -33,6 +37,11 @@ public class TipDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tip_detail);
         ButterKnife.bind(this);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         Intent intent = getIntent();
 //        TipRecord tipRecord = (TipRecord) intent.getSerializableExtra(RECORD_KEY);
 
@@ -47,6 +56,17 @@ public class TipDetailActivity extends AppCompatActivity {
                 intent.getDoubleExtra(TIP_KEY, 0d));
 
         txtTip.setText(formatedTip);
+    }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                 onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
