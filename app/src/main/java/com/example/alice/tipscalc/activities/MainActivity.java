@@ -19,6 +19,9 @@ import com.example.alice.tipscalc.App;
 import com.example.alice.tipscalc.R;
 import com.example.alice.tipscalc.fragments.TipHistoryListFragment;
 import com.example.alice.tipscalc.fragments.TipHistoryListFragmentListener;
+import com.example.alice.tipscalc.models.TipRecord;
+
+import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -118,9 +121,15 @@ public class MainActivity extends AppCompatActivity {
             int tipPercentage = getTipPercentage();
             double tip = total*(tipPercentage/100d);
 
-            String strFormatedTip = String.format(getString(R.string.global_message_tip),tip);
 
-            fragmentListener.action(strFormatedTip);
+            TipRecord tipRecord = new TipRecord();
+            tipRecord.setBill(total);
+            tipRecord.setTipPercentage(tipPercentage);
+            tipRecord.setTimestamp(new Date());
+
+            String strFormatedTip = String.format(getString(R.string.global_message_tip),
+                                                    tipRecord.getTip());
+            fragmentListener.addTipToList(tipRecord);
 
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strFormatedTip);
@@ -140,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "click Decrease");
         hideKeyBoard();
         handleTipChange(-TIP_STEP_CHANGE);
+    }
+
+    @OnClick(R.id.btnClear)
+    public  void handleClearClick(){
+        fragmentListener.clearTipList();
     }
 
     /**

@@ -41,7 +41,7 @@ public class TipRecord {
     }
 
     public String getDateFormat(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM dd, yyyy HH:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy HH:mm");
         return  simpleDateFormat.format(timestamp);
     }
 
